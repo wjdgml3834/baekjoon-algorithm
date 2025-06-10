@@ -1,9 +1,12 @@
+import sys
+
+
 N = int(input())
 a_win = 0
 b_win = 0
 
 for i in range(0,N,1):
-    lst = list(map(int,input().split()))
+    lst = list(map(int,sys.stdin.readline().split()))
     a = lst[0]
     b = lst[1]
     if a > b:
