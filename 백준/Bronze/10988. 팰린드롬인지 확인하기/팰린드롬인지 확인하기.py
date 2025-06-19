@@ -1,14 +1,11 @@
 st = input()
-lst = []
-for char in st:
-    lst.append(char)
-result =[]
-    
-for i in range(0,len(lst),1):
-    if lst[i] == lst[len(lst)-(i+1)]:
-        result.append(lst[i])
+is_pelindrome = True
+for i in range(0,len(st)//2,1):
+    if st[i] != st[len(st)-(i+1)]:
+        is_pelindrome = False
+        break
 
-if len(result) == len(lst):
+if is_pelindrome:
     print(1)
 else:
     print(0)
