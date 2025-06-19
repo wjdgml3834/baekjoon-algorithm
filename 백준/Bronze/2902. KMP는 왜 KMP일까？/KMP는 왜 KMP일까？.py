@@ -1,11 +1,7 @@
-lst = list(input().split("-"))
-result_lst = []
+lst = input().split("-")
+result = ""
 
-for i in range(0,len(lst),1):
-    st = lst[i]
-    for j in st:
-        result_lst.append(st[0])
-        break
-        
-short_name = "".join(result_lst)
-print(short_name)
+for st in lst:
+    result = result + st[0]
+
+print(result)
