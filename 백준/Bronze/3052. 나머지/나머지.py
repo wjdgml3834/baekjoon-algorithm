@@ -7,8 +7,7 @@ for i in range(0,10,1):
     lst.append(remain)
 
 for i in range(0,len(lst),1):
-    if lst.count(lst[i]) >= 2:
-        if lst[i] not in result:
+    if lst.count(lst[i]) >= 2 and lst[i] not in result:
             result.append(lst[i])
     elif lst.count(lst[i]) == 1:
         result.append(lst[i])
