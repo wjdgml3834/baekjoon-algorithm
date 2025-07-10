@@ -1,15 +1,14 @@
-lst = []
-result = []
 
-for i in range(0,10,1):
+lst = [0] * 42
+cnt = 0
+
+for i in range(10):
     n = int(input())
     remain = n % 42
-    lst.append(remain)
+    lst[remain] = lst[remain] + 1
 
-for i in range(0,len(lst),1):
-    if lst.count(lst[i]) >= 2 and lst[i] not in result:
-            result.append(lst[i])
-    elif lst.count(lst[i]) == 1:
-        result.append(lst[i])
-                        
-print(len(result))
+for i in lst:
+    if i >= 1:
+        cnt += 1
+
+print(cnt)
