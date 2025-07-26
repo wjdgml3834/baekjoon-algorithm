@@ -1,10 +1,15 @@
 S = input()
-lst = [0] * 26
+dic = {}
 alphabet = "abcdefghijklmnopqrstuvwxyz"
 
-for ch in S:
-    idx = alphabet.index(ch)
-    lst[idx] = lst[idx] + 1
+for i in range(0,len(alphabet),1):
+    letter = alphabet[i]
+    dic[letter] = 0
 
-for i in lst:
-    print(i, end= " ")
+for i in range(0,len(S),1):
+    for key in dic.keys():
+        if key == S[i]:
+            dic[key] = dic[key] + 1
+
+for v in dic.values():
+    print(v, end=" ")
