@@ -1,30 +1,22 @@
-lst = list(map(int,input().split()))
-a = lst[0]
-b = lst[1]
-lst2 = []
-st_a = str(a)
-st_b = str(b)
+lst = input().split()
 
-if len(st_a) >= len(st_b):
-    for _ in range(len(st_a)):
-        a_digit = a % 10
-        b_digit = b % 10
-        sum_digit = a_digit + b_digit
-        lst2.append(str(sum_digit))
-        a //= 10
-        b //= 10
+n1 = lst[0]
+n2 = lst[1]
 
-else:
-    for _ in range(len(st_b)):
-        a_digit = a % 10
-        b_digit = b % 10
-        sum_digit = a_digit + b_digit
-        lst2.append(str(sum_digit))
-        a //= 10
-        b //= 10
+len1 = len(n1)
+len2 = len(n2)
+gap = abs(len1 - len2)
 
+if len1 > len2:
+    n2 = "0"*gap + n2 
 
-lst2.reverse()
-join_result = "".join(lst2)
-result = int(join_result)
-print(result)
+elif len1 < len2:
+    n1 = "0"*gap + n1
+
+rst = ""
+for i in range(0,len(n1),1):
+    sum_digit = int(n1[i]) + int(n2[i])
+    rst += str(sum_digit)
+
+rst = int(rst)
+print(rst)
