@@ -2,51 +2,26 @@ lst = list(map(int,input().split()))
 A = lst[0]
 B = lst[1]
 
-A_str = str(A) # 자릿수 5와 6 파악을 위해 문자열로 변환
-B_str = str(B)
-
-A_min = "" # A 최소 담을 변수
-A_max = "" # A 최대 담을 변수
-B_min = "" # B 최소 담을 변수
-B_max = "" # B 최대 담을 변수
-
-for i in A_str: # A가 최소일때 -> 모든 숫자 5로 봄
-    if i == "5" or i == "6":
-        A_min = A_min + "5"
+def func(num,fr,to):
+    n = num # 혹시 몰라서 원본 복사 
+    rst = 0 # 반환할 숫자
+    sq = 1  # 자릿수 곱해줄 변수
     
-    else:
-        A_min = A_min + i 
+    while n > 0:
+        r = n % 10 # 일의 자릿수를 구하려면 10으로 나눈 나머지를 구하면 된다. 
         
-
-for i in A_str: # A가 최대일 때 -> 모든 숫자 6으로 봄
-    if i == "5" or i == "6":
-        A_max = A_max + "6"
-    
-    else:
-        A_max = A_max + i 
-
-
-for i in B_str: # B가 최소일때 -> 모든 숫자 5로 봄
-    if i == "5" or i == "6":
-        B_min = B_min + "5"
-    
-    else:
-        B_min = B_min + i 
-
-
-for i in B_str: # B가 최대 일때 -> 모든 숫자 6으로 봄
-    if i == "5" or i == "6":
-        B_max = B_max + "6"
-    
-    else:
-        B_max = B_max + i 
+        if r == fr: # 만약 from이 나왔다면 to로 바꿔준다.
+            r = to
         
-A_min = int(A_min)  # 숫자형으로 모두 변환       
-A_max = int(A_max)        
-B_min = int(B_min)        
-B_max = int(B_max)        
+        rst = rst + r * sq # 그 값을 총 더한다.
         
-rst_min = A_min + B_min
-rst_max = A_max + B_max
+        sq = sq * 10 # 자릿수 올라가게 만든다.
+        
+        n = n // 10 # 10으로 나눈 몫이 그 다음 자릿수가 된다. 
+    
+    return rst 
 
-print(rst_min, rst_max)
+min_sum = func(A,6,5) +  func(B,6,5)
+max_sum = func(A,5,6) +  func(B,5,6)
+
+print(min_sum, max_sum)
